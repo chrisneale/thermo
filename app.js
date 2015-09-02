@@ -10,6 +10,7 @@ fs.watch('public/images/webcam.jpg', webcamUpdated);
 function webcamUpdated (event, filename) {
 	// Should we check to make sure socket.io has loaded first?
 	io.emit('webcamUpdated', {file: filename});	
+	console.log('webcamUpdated');
 }
 
 function pollTemperature () {
