@@ -5,4 +5,5 @@ socket.on('msgTemperature', function(msg) {
 });
 socket.on('webcamUpdated', function(msg) {
 	console.log('Webcam updated - ' + msg);
+	$('#imgWebcam').attr('src', '/images/webcam.jpg?'+ new Date().getTime());
 });
