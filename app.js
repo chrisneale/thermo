@@ -4,6 +4,7 @@ var http = require('http');
 var server = http.createServer(app).listen(3000);
 var io = require('socket.io').listen(server);
 var fs = require('fs');
+var temp = require('temperature');
 
 fs.watchFile('public/images/webcam.jpg', webcamUpdated);
 
@@ -14,8 +15,8 @@ function webcamUpdated (event, filename) {
 }
 
 function pollTemperature () {
-//	console.log(temp.temperature);
-//	io.emit('msgTemperature', { temp: temp.temperature });
+	console.log(temp.temperature);
+	io.emit('msgTemperature', { temp: temp.temperature });
 };
 io.on('connection', function(socket) {
 	setInterval(pollTemperature, 1000);
