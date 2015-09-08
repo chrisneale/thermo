@@ -14,8 +14,8 @@ function webcamUpdated (event, filename) {
 }
 
 function pollTemperature () {
-	console.log(temp.temperature);
-	io.emit('msgTemperature', { temp: temp.temperature });
+//	console.log(temp.temperature);
+//	io.emit('msgTemperature', { temp: temp.temperature });
 };
 io.on('connection', function(socket) {
 	setInterval(pollTemperature, 1000);
@@ -30,7 +30,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var temp = require('temperature');
+//var temp = require('temperature');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
